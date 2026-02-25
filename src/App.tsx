@@ -9,7 +9,6 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Sidebar } from './components/Sidebar';
 import { isSupabaseConfigured } from './lib/supabase';
-import { LandingPage } from './pages/LandingPage';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { Members } from './pages/Members';
@@ -49,10 +48,9 @@ export default function App() {
       <LanguageProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             
-            <Route path="/dashboard" element={
+            <Route path="/" element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>

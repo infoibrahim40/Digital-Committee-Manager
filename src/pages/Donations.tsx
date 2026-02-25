@@ -24,6 +24,8 @@ export const Donations: React.FC = () => {
   useEffect(() => {
     if (profile?.committee_id) {
       fetchDonations();
+    } else if (profile) {
+      setLoading(false);
     }
   }, [profile]);
 

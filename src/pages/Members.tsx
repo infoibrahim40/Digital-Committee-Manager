@@ -26,6 +26,8 @@ export const Members: React.FC = () => {
   useEffect(() => {
     if (profile?.committee_id) {
       fetchMembers();
+    } else if (profile) {
+      setLoading(false);
     }
   }, [profile]);
 

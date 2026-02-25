@@ -71,6 +71,20 @@ export const Reports: React.FC = () => {
     }
   };
 
+  if (!profile?.committee_id) {
+    return (
+      <div className="p-8 text-center space-y-4">
+        <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto">
+          <FileBarChart size={32} />
+        </div>
+        <h2 className="text-2xl font-bold text-slate-800">No Committee Found</h2>
+        <p className="text-slate-500 max-w-md mx-auto">
+          Your account is not yet associated with a committee. Please contact your administrator or try logging in again.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4 lg:p-8 space-y-8">
       <header>

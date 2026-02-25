@@ -37,6 +37,9 @@ export const Dashboard: React.FC = () => {
   useEffect(() => {
     if (profile?.committee_id) {
       fetchStats();
+    } else if (profile) {
+      // Profile exists but no committee_id yet (maybe just signed up)
+      setLoading(false);
     }
   }, [profile]);
 
@@ -108,7 +111,25 @@ export const Dashboard: React.FC = () => {
     { title: t('balance'), value: `৳${stats.balance}`, icon: Wallet, color: 'bg-amber-500' },
   ];
 
-  if (loading) return <div className="p-8">Loading dashboard...</div>;
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
+
+  if (!profile?.committee_id) {
+    return (
+      <div className="p-8 text-center space-y-4">
+        <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto">
+          <Wallet size={32} />
+        </div>
+        <h2 className="text-2xl font-bold text-slate-800">No Committee Found</h2>
+        <p className="text-slate-500 max-w-md mx-auto">
+          Your account is not yet associated with a committee. Please contact your administrator or try logging in again.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 lg:p-8 space-y-8">

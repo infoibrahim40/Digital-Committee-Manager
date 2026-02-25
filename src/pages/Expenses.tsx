@@ -24,6 +24,8 @@ export const Expenses: React.FC = () => {
   useEffect(() => {
     if (profile?.committee_id) {
       fetchExpenses();
+    } else if (profile) {
+      setLoading(false);
     }
   }, [profile]);
 
