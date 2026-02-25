@@ -27,7 +27,7 @@ export const Sidebar: React.FC = () => {
   const { t, language, setLanguage } = useLanguage();
 
   const navItems = [
-    { name: t('dashboard'), path: '/', icon: LayoutDashboard },
+    { name: t('dashboard'), path: '/dashboard', icon: LayoutDashboard },
     { name: t('members'), path: '/members', icon: Users },
     { name: t('donations'), path: '/donations', icon: HandCoins },
     { name: t('expenses'), path: '/expenses', icon: ReceiptText },
