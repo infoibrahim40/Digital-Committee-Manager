@@ -1,0 +1,5 @@
+{
+  "name": "Digital Committee Manager",
+  "description": "Multi-tenant SaaS for managing Mosque, Madrasah, Club, and Building committees with donation, expense, and member tracking.",
+  "requestFramePermissions": []
+}
